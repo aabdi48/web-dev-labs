@@ -1,4 +1,4 @@
-<!-- Abdullahi Abdi — Lab 3 -->
+<!-- Abdullahi Abdi — Lab 4 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,25 +11,115 @@
 
 <body>
 
-    <h1>Hello, Web!</h1>
+    <header>
+        <h1>Hello, Web!</h1>
+        <p>A student project for Web Development I</p>
+    </header>
 
-    <p>This is my first HTML page for this course.</p>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
 
-    <h2>About This Page</h2>
+    <main>
 
-    <ul>
-        <li>HTML and CSS</li>
-        <li>JavaScript</li>
-        <li>Git and GitHub</li>
-    </ul>
+        <p>This is my first HTML page for this course.</p>
 
-    <a href="https://www.w3schools.com">
-        W3Schools Web Development Tutorials
-    </a>
+        <h2>About This Page</h2>
 
-    <br><br>
+        <ul>
+            <li>HTML and CSS</li>
+            <li>JavaScript</li>
+            <li>Git and GitHub</li>
+        </ul>
 
-    <img src="photo.jpg" alt="Coding displayed on a computer screen">
+        <p>
+            Visit
+            <a href="https://www.w3schools.com/" target="_blank">
+                W3Schools
+            </a>
+            to learn more about web development.
+        </p>
+
+        <img src="photo.jpg" alt="My web development image" width="300">
+
+        <h2>My Course Schedule</h2>
+
+        <table>
+            <caption>My Weekly Course Schedule</caption>
+
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Course</th>
+                    <th>Topic</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td>Web Development I</td>
+                    <td>Advanced HTML</td>
+                </tr>
+
+                <tr>
+                    <td>Wednesday</td>
+                    <td>Web Development I</td>
+                    <td>Tables and Forms</td>
+                </tr>
+
+                <tr>
+                    <td>Friday</td>
+                    <td>Web Development I</td>
+                    <td>Git and GitHub</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Contact Me</h2>
+
+        <form>
+
+            <label for="name">Name</label>
+            <br>
+            <input type="text" id="name" name="name" required>
+
+            <br><br>
+
+            <label for="email">Email</label>
+            <br>
+            <input type="email" id="email" name="email" required>
+
+            <br><br>
+
+            <label for="msg">Message</label>
+            <br>
+            <textarea id="msg" name="msg"></textarea>
+
+            <br><br>
+
+            <label for="referral">How did you find this page?</label>
+            <br>
+
+            <select id="referral" name="referral">
+                <option value="search">Search engine</option>
+                <option value="social">Social media</option>
+                <option value="friend">A friend</option>
+            </select>
+
+            <br><br>
+
+            <button type="submit">Send</button>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Abdullahi Abdi</p>
+    </footer>
 
 </body>
 
