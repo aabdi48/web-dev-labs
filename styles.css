@@ -1,74 +1,207 @@
-/* Abdullahi Abdi — Lab 5 */
-
+/* Abdullahi Abdi — Lab 6 */
 * {
     box-sizing: border-box;
 }
 
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
     color: #222;
-    max-width: 700px;
-    margin: 40px auto;
 }
 
+
+/* Header */
 header {
-    padding: 24px;
-    background-color: #0f9488;
+    background-color: #1f2937;
     color: white;
-    margin-bottom: 16px;
+    padding: 20px;
+
+    /* Lab 6 Part 1 */
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 header h1 {
-    color: white;
+    margin: 0 0 15px 0;
 }
 
-h1 {
-    color: #0f9488;
-}
 
+/* Navigation */
 #main-nav {
     display: flex;
-    gap: 8px;
-    justify-content: center;
-    background-color: #0d3b36;
+    gap: 10px;
 }
 
 #main-nav a {
     color: white;
     text-decoration: none;
-    padding: 12px;
+    background-color: #374151;
+    padding: 10px 15px;
+    border-radius: 5px;
+
+    /* Lab 6 Part 4 */
+    transition: background-color 0.2s ease;
 }
 
 #main-nav a:hover {
-    background-color: #14b8a6;
+    background-color: #2563eb;
 }
 
-img {
+
+/* Main page */
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 5px;
+}
+
+
+/* Image */
+.image-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.image-wrap img {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
+
+/* New badge */
+.badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #dc2626;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    z-index: 5;
+}
+
+
+/* Table */
 table {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
 th,
 td {
-    padding: 10px;
     border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
 }
 
-thead {
-    background-color: #e6f7f4;
+th {
+    background-color: #1f2937;
+    color: white;
+}
+
+
+/* Form */
+form {
+    width: 100%;
+    max-width: 600px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 input,
-textarea,
-select {
-    display: block;
+textarea {
     width: 100%;
-    max-width: 400px;
-    padding: 8px;
-    margin-bottom: 12px;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1f2937;
+    color: white;
+}
+
+
+/* Tablet breakpoint */
+/* Lab 6 requires a second breakpoint at 900px */
+@media (max-width: 900px) {
+
+    main {
+        width: 95%;
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.95rem;
+    }
+
+    form {
+        width: 100%;
+    }
+}
+
+
+/* Phone breakpoint */
+/* Lab 6 requires nav to stack vertically at 600px */
+@media (max-width: 600px) {
+
+    #main-nav {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    main {
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+    }
+
+    #main-nav a {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
 }
