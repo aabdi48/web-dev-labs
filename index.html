@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Lab 6 - Advanced CSS Part 2</title>
+    <title>Lab 7 - Introduction to JavaScript</title>
 
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -23,7 +24,6 @@
         </nav>
     </header>
 
-
     <main>
 
         <section id="home">
@@ -31,42 +31,60 @@
             <h2>Welcome</h2>
 
             <p>
-                Welcome to my website. This page demonstrates advanced CSS
-                positioning and responsive design.
+                Welcome to my website. This page demonstrates
+                advanced CSS positioning, responsive design,
+                and JavaScript interactivity.
             </p>
 
             <div class="image-wrap">
                 <img
                     src="photo.jpg"
-                    alt="Image used for Lab 6"
+                    alt="Image used for Lab 7"
                 >
 
                 <span class="badge">New</span>
             </div>
 
-        </section>
+            <h2>JavaScript Interactive Features</h2>
 
+            <p>
+                Click the buttons below to interact
+                with this webpage.
+            </p>
+
+            <button id="like-btn" type="button">
+                Like this page
+            </button>
+
+            <p id="like-count">0 likes</p>
+
+            <button id="theme-btn" type="button">
+                Toggle dark mode
+            </button>
+
+        </section>
 
         <section id="about">
 
             <h2>About</h2>
 
             <p>
-                This website was created as part of my Web Development I course.
-                The page uses HTML and CSS to create a responsive layout that
+                This website was created as part of my
+                Web Development I course. The page uses
+                HTML, CSS, and JavaScript to create a
+                responsive and interactive layout that
                 works on desktop, tablet, and mobile devices.
             </p>
 
         </section>
-
 
         <section id="projects">
 
             <h2>Projects</h2>
 
             <p>
-                Below are examples of web development skills practiced in this
-                course.
+                Below are examples of web development
+                skills practiced in this course.
             </p>
 
             <table>
@@ -96,7 +114,19 @@
                     <tr>
                         <td>Responsive Layout</td>
                         <td>CSS Media Queries</td>
-                        <td>In Progress</td>
+                        <td>Completed</td>
+                    </tr>
+
+                    <tr>
+                        <td>JavaScript Like Counter</td>
+                        <td>JavaScript</td>
+                        <td>Completed</td>
+                    </tr>
+
+                    <tr>
+                        <td>Dark Mode Toggle</td>
+                        <td>JavaScript and CSS</td>
+                        <td>Completed</td>
                     </tr>
 
                 </tbody>
@@ -104,7 +134,6 @@
             </table>
 
         </section>
-
 
         <section id="contact">
 
@@ -120,7 +149,6 @@
                     name="name"
                 >
 
-
                 <label for="email">Email:</label>
 
                 <input
@@ -129,7 +157,6 @@
                     name="email"
                 >
 
-
                 <label for="message">Message:</label>
 
                 <textarea
@@ -137,7 +164,6 @@
                     name="message"
                     rows="5"
                 ></textarea>
-
 
                 <button type="submit">
                     Submit
@@ -149,7 +175,6 @@
 
     </main>
 
-
     <footer>
 
         <p>
@@ -157,6 +182,8 @@
         </p>
 
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>

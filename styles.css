@@ -1,4 +1,8 @@
-/* Abdullahi Abdi — Lab 6 */
+
+/* Abdullahi Abdi — Lab 7 */
+/* Introduction to JavaScript */
+
+/* General Styling */
 * {
     box-sizing: border-box;
 }
@@ -10,7 +14,6 @@ body {
     background-color: #f4f4f4;
     color: #222;
 }
-
 
 /* Header */
 header {
@@ -27,7 +30,6 @@ header {
 header h1 {
     margin: 0 0 15px 0;
 }
-
 
 /* Navigation */
 #main-nav {
@@ -50,8 +52,7 @@ header h1 {
     background-color: #2563eb;
 }
 
-
-/* Main page */
+/* Main Page */
 main {
     max-width: 1000px;
     margin: 30px auto;
@@ -68,7 +69,6 @@ h2 {
     padding-bottom: 5px;
 }
 
-
 /* Image */
 .image-wrap {
     position: relative;
@@ -81,8 +81,7 @@ h2 {
     display: block;
 }
 
-
-/* New badge */
+/* New Badge */
 .badge {
     position: absolute;
     top: 8px;
@@ -93,7 +92,6 @@ h2 {
     border-radius: 4px;
     z-index: 5;
 }
-
 
 /* Table */
 table {
@@ -113,7 +111,6 @@ th {
     background-color: #1f2937;
     color: white;
 }
-
 
 /* Form */
 form {
@@ -149,6 +146,59 @@ button:hover {
     background-color: #1d4ed8;
 }
 
+/* Lab 7 Part 3 — Like Counter */
+#like-count {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Lab 7 Part 4 — Dark Mode */
+body.dark {
+    background-color: #111827;
+    color: #f1f5f9;
+}
+
+/* Dark Mode Main Content */
+body.dark main {
+    background-color: #1f2937;
+    color: #f1f5f9;
+}
+
+/* Dark Mode Headings */
+body.dark h2 {
+    color: #f1f5f9;
+    border-bottom-color: #60a5fa;
+}
+
+/* Dark Mode Table */
+body.dark th {
+    background-color: #374151;
+    color: white;
+}
+
+body.dark td {
+    border-color: #64748b;
+}
+
+/* Dark Mode Form */
+body.dark input,
+body.dark textarea {
+    background-color: #374151;
+    color: white;
+    border-color: #64748b;
+}
+
+/* Dark Mode Buttons */
+body.dark button {
+    background-color: #3b82f6;
+    color: white;
+}
+
+body.dark button:hover {
+    background-color: #2563eb;
+}
 
 /* Footer */
 footer {
@@ -158,8 +208,7 @@ footer {
     color: white;
 }
 
-
-/* Tablet breakpoint */
+/* Tablet Breakpoint */
 /* Lab 6 requires a second breakpoint at 900px */
 @media (max-width: 900px) {
 
@@ -177,8 +226,7 @@ footer {
     }
 }
 
-
-/* Phone breakpoint */
+/* Phone Breakpoint */
 /* Lab 6 requires nav to stack vertically at 600px */
 @media (max-width: 600px) {
 
