@@ -1,5 +1,4 @@
-
- // Abdullahi Abdi - Lab 9
+// Abdullahi Abdi - Lab 10
 
 // ==========================================
 // LAB 8 - PREVIOUS JAVASCRIPT FEATURES
@@ -16,16 +15,75 @@ console.log(`${name} has completed ${labsCompleted} labs.`);
 console.log("Enrolled:", isEnrolled);
 
 
-// Part 1 - Like Button
+// ==========================================
+// LAB 10 - PART 1: LOCAL STORAGE
+// ==========================================
+
+// Check if localStorage is available
+function storageAvailable() {
+    try {
+        const testKey = "__storage_test__";
+        localStorage.setItem(testKey, "test");
+        localStorage.removeItem(testKey);
+        return true;
+    } catch (error) {
+        console.warn("localStorage is unavailable:", error);
+        return false;
+    }
+}
+
+const canUseStorage = storageAvailable();
+
+function getSavedItem(key) {
+    if (!canUseStorage) {
+        return null;
+    }
+
+    try {
+        return localStorage.getItem(key);
+    } catch (error) {
+        console.warn("Could not read storage:", error);
+        return null;
+    }
+}
+
+function saveItem(key, value) {
+    if (!canUseStorage) {
+        return;
+    }
+
+    try {
+        localStorage.setItem(key, String(value));
+    } catch (error) {
+        console.warn("Could not save storage:", error);
+    }
+}
+
+
+// ==========================================
+// LAB 8 + LAB 10 - LIKE BUTTON
+// ==========================================
+
 const likeBtn = document.querySelector("#like-btn");
 const likeCount = document.querySelector("#like-count");
 const likeMessage = document.querySelector("#like-message");
 
+// Restore the saved number of likes
+const savedLikes = Number(getSavedItem("likes"));
+const startingLikes =
+    Number.isFinite(savedLikes) && savedLikes >= 0
+        ? savedLikes
+        : 0;
+
 const LikeCounter = {
-    likes: 0,
+    likes: startingLikes,
 
     increment() {
         this.likes = this.likes + 1;
+
+        // Save likes whenever the count changes
+        saveItem("likes", this.likes);
+
         this.render();
     },
 
@@ -51,6 +109,9 @@ const LikeCounter = {
     }
 };
 
+// Display the stored count immediately
+LikeCounter.render();
+
 if (likeBtn) {
     likeBtn.addEventListener("click", function() {
         LikeCounter.increment();
@@ -60,7 +121,10 @@ if (likeBtn) {
 }
 
 
-// Part 2 - Arrays and Loops
+// ==========================================
+// LAB 8 - ARRAYS AND LOOPS
+// ==========================================
+
 const goals = ["HTML", "CSS", "JavaScript", "Git"];
 const goalsList = document.querySelector("#goals-list");
 
@@ -75,24 +139,46 @@ if (goalsList) {
 }
 
 
-// Part 3 - Conditionals
+// ==========================================
+// LAB 8 - CONDITIONALS
+// ==========================================
+
 // Conditional messages are handled by
 // the LikeCounter.render() function above.
 
 
-// Part 4 - Dark Mode (From Lab 7)
+// ==========================================
+// LAB 10 - PART 2: PERSISTENT DARK MODE
+// ==========================================
+
 const themeBtn = document.querySelector("#theme-btn");
+
+// Apply saved preference when the page loads
+if (getSavedItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+}
 
 if (themeBtn) {
     themeBtn.addEventListener("click", function() {
+
+        // Toggle the dark mode class
         document.body.classList.toggle("dark-mode");
+
+        // Save the user's preference
+        const isDark =
+            document.body.classList.contains("dark-mode");
+
+        saveItem("theme", isDark ? "dark" : "light");
     });
 } else {
     console.warn("theme-btn not found on this page");
 }
 
 
-// Part 6 - Testing
+// ==========================================
+// LAB 8 - TESTING
+// ==========================================
+
 console.log("Lab 8 JavaScript loaded successfully.");
 
 
@@ -126,7 +212,10 @@ async function showGreeting() {
 showGreeting();
 
 
-// Part 4 - Fetching Real Data from an API
+// ==========================================
+// LAB 9 - CAT FACTS API
+// ==========================================
+
 const factBtn = document.querySelector("#fact-btn");
 const factDisplay = document.querySelector("#fact-display");
 
@@ -173,6 +262,89 @@ if (factBtn && factDisplay) {
     console.warn("Cat Fact elements not found.");
 }
 
-
-// Lab 9 - Final Testing
 console.log("Lab 9 JavaScript loaded successfully.");
+
+
+// ==========================================
+// LAB 10 - PART 3: GEOLOCATION API
+// ==========================================
+
+const locationBtn =
+    document.querySelector("#location-btn");
+
+const locationDisplay =
+    document.querySelector("#location-display");
+
+if (locationBtn && locationDisplay) {
+
+    locationBtn.addEventListener("click", function() {
+
+        // Check browser support
+        if (!("geolocation" in navigator)) {
+            locationDisplay.textContent =
+                "Geolocation isn't supported.";
+            return;
+        }
+
+        // Show a message while waiting
+        locationDisplay.textContent =
+            "Requesting your location...";
+
+        navigator.geolocation.getCurrentPosition(
+
+            // Success callback
+            function(position) {
+                const lat =
+                    position.coords.latitude.toFixed(2);
+
+                const lon =
+                    position.coords.longitude.toFixed(2);
+
+                locationDisplay.textContent =
+                    `You're near ${lat}, ${lon}`;
+            },
+
+            // Error callback
+            function(error) {
+                if (error.code === 1) {
+                    locationDisplay.textContent =
+                        "Location access was denied.";
+                } else {
+                    locationDisplay.textContent =
+                        "Unable to retrieve your location.";
+                }
+
+                console.warn(
+                    "Geolocation error:",
+                    error.message
+                );
+            }
+        );
+    });
+
+} else {
+    console.warn("Location elements not found.");
+}
+
+
+// ==========================================
+// LAB 10 - PART 4: FEATURE DETECTION
+// ==========================================
+
+// localStorage is checked by storageAvailable().
+//
+// Geolocation is checked using:
+// "geolocation" in navigator
+//
+// The Lab 9 API request uses response.ok
+// to handle unsuccessful server responses.
+
+
+// ==========================================
+// LAB 10 - PART 5: FINAL TESTING
+// ==========================================
+
+console.log("Lab 10 JavaScript loaded successfully.");
+console.log("Saved likes:", LikeCounter.likes);
+console.log("Saved theme:", getSavedItem("theme"));
+console.log("Storage available:", canUseStorage);

@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Lab 9 - Asynchronous JavaScript</title>
+    <title>Lab 10 - Web and JavaScript APIs</title>
 
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,11 +21,13 @@
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
             <a href="#cat-facts">Cat Facts</a>
+            <a href="#location">Location</a>
         </nav>
     </header>
 
     <main>
 
+        <!-- HOME SECTION -->
         <section id="home">
 
             <h2>Welcome</h2>
@@ -38,10 +39,8 @@
             </p>
 
             <div class="image-wrap">
-                <img
-                    src="photo.jpg"
-                    alt="Image used for Lab 8"
-                >
+                <img src="photo.jpg"
+                     alt="Image used for Lab 8">
 
                 <span class="badge">New</span>
             </div>
@@ -53,22 +52,20 @@
                 with this webpage.
             </p>
 
-            <!-- Lab 8 Part 1 - Like Button -->
+            <!-- LAB 10 PART 1: PERSISTENT LIKES -->
             <button id="like-btn" type="button">
                 Like this page
             </button>
 
             <p id="like-count">0 likes</p>
-
-            <!-- Lab 8 Part 3 - Conditional Message -->
             <p id="like-message"></p>
 
-            <!-- Dark Mode from Lab 7 -->
+            <!-- LAB 10 PART 2: PERSISTENT DARK MODE -->
             <button id="theme-btn" type="button">
                 Toggle dark mode
             </button>
 
-            <!-- Lab 8 Part 2 - Arrays and Loops -->
+            <!-- LAB 8: ARRAYS AND LOOPS -->
             <h2>My Web Development Goals</h2>
 
             <p>
@@ -80,6 +77,8 @@
 
         </section>
 
+
+        <!-- ABOUT SECTION -->
         <section id="about">
 
             <h2>About</h2>
@@ -88,12 +87,19 @@
                 This website was created as part of my
                 Web Development I course. The page uses
                 HTML, CSS, and JavaScript to create a
-                responsive and interactive layout that
-                works on desktop, tablet, and mobile devices.
+                responsive and interactive layout.
+            </p>
+
+            <p>
+                Lab 10 adds browser Web APIs to remember
+                preferences and request location access
+                with the visitor's permission.
             </p>
 
         </section>
 
+
+        <!-- PROJECTS SECTION -->
         <section id="projects">
 
             <h2>Projects</h2>
@@ -104,7 +110,6 @@
             </p>
 
             <table>
-
                 <thead>
                     <tr>
                         <th>Project</th>
@@ -114,7 +119,6 @@
                 </thead>
 
                 <tbody>
-
                     <tr>
                         <td>HTML Page</td>
                         <td>HTML</td>
@@ -163,58 +167,76 @@
                         <td>Lab 9</td>
                     </tr>
 
-                </tbody>
+                    <tr>
+                        <td>Persistent Like Counter</td>
+                        <td>Web Storage API</td>
+                        <td>Lab 10</td>
+                    </tr>
 
+                    <tr>
+                        <td>Persistent Dark Mode</td>
+                        <td>Web Storage API</td>
+                        <td>Lab 10</td>
+                    </tr>
+
+                    <tr>
+                        <td>Share My Location</td>
+                        <td>Geolocation API</td>
+                        <td>Lab 10</td>
+                    </tr>
+
+                    <tr>
+                        <td>Feature Detection</td>
+                        <td>JavaScript Web APIs</td>
+                        <td>Lab 10</td>
+                    </tr>
+                </tbody>
             </table>
 
         </section>
 
+
+        <!-- CONTACT SECTION -->
         <section id="contact">
 
             <h2>Contact</h2>
 
             <form>
-
                 <label for="name">Name:</label>
 
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                >
+                <input type="text"
+                       id="name"
+                       name="name">
 
                 <label for="email">Email:</label>
 
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                >
+                <input type="email"
+                       id="email"
+                       name="email">
 
                 <label for="message">Message:</label>
 
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="5"
-                ></textarea>
+                <textarea id="message"
+                          name="message"
+                          rows="5"></textarea>
 
                 <button type="submit">
                     Submit
                 </button>
-
             </form>
 
         </section>
 
-        <!-- Lab 9 Part 4 - Fetching Data from API -->
+
+        <!-- LAB 9: CAT FACTS API -->
         <section id="cat-facts">
 
             <h2>Random Cat Facts</h2>
 
             <p>
                 This section demonstrates asynchronous
-                JavaScript using the Fetch API and async/await.
+                JavaScript using the Fetch API
+                and async/await.
             </p>
 
             <button id="fact-btn" type="button">
@@ -227,13 +249,44 @@
 
         </section>
 
+
+        <!-- LAB 10 PART 3: GEOLOCATION API -->
+        <section id="location">
+
+            <h2>Geolocation API</h2>
+
+            <p>
+                This section demonstrates how JavaScript
+                can request the visitor's approximate
+                location using the browser's Geolocation API.
+            </p>
+
+            <p>
+                Your location will only be requested
+                when you click the button and grant
+                permission in your browser.
+            </p>
+
+            <button id="location-btn" type="button">
+                Share My Location
+            </button>
+
+            <p id="location-display"
+               aria-live="polite"></p>
+
+        </section>
+
     </main>
 
+
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Abdullahi Abdi</p>
     </footer>
 
-    <script src="script.js"></script>
+
+    <!-- LOAD LAB 10 JAVASCRIPT -->
+    <script src="./script.js?v=10"></script>
 
 </body>
 </html>
